@@ -12,16 +12,16 @@ export default function SearchLibrary() {
                 <div className="row container  ">
                   <div className='LibFont'>
                     <FaBookOpen style={{fontSize:"20rem"}} />
-                    <div class="Textsearchlib">
+                    <div className="Textsearchlib">
                       Search in Library
                     </div>
                     <div>
-                      <input class="form-control form-control-md container-fluid libraryinput" 
+                      <input className="form-control form-control-md container-fluid libraryinput" 
                                     type="text" 
                                     name="code" 
                                     id="code" 
                                     placeholder="udp-ctxp-cue" />
-                      <Link to="/user" type="submit" class="btn btn-primary rounded roombutton" >
+                      <Link to="/user" type="submit" className="btn btn-primary rounded roombutton" >
                                       Search <FaSearch style={{fontSize:"1.5rem"}} />
                                     </Link>
                     </div>

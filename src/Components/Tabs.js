@@ -12,14 +12,14 @@ class Tabs extends Component {
 
   render() {
     return (
-      <div class="container-fluid">
-        <ul class="tabUL">
+      <div className="container-fluid">
+        <ul className="tabUL">
           {this.props.children.map((elem, index) => {
             let style = index === this.state.selected ? "tabLI selected" : " tabLI ";
             return (
                     <li
                         key={index}
-                        class={style}
+                        className={style}
                         onClick={() => this.handleChange(index)}
                     >
                         {elem.props.title}

@@ -20,11 +20,11 @@ export default class Contentdropdown extends React.Component {
   render() {
     return (
       <div id={this.props.id}>
-        <div class="pb-2">
+        <div className="pb-2">
           
           <button className={this.state.hover} >
-            <div class="row">
-              <Link class="col textdecor" to={`/menu/${this.props.id}`}>
+            <div className="row">
+              <Link className="col textdecor" to={`/menu/${this.props.id}`}>
                 <FaBook className='Fausers mx-3' />
                 {this.props.title}
               </Link>

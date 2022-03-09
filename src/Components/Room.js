@@ -14,23 +14,21 @@ function Room({name , roomDetails}) {
   
   return (
     <div>
-        <div class="container ">
+        <div className="container ">
             <div className='SideTextsize '>
                 {name}
             </div>
 
-            <div class="roomsize ">
-              <div class="mt-2">
+            <div className="roomsize ">
+              <div className="mt-2">
               
               {roomDetails.map((item, i) => (
-        
-                    // console.log(item)
                 <div key={i}>
 
                   <DropdownItem title={item.title} id={item._id}>
-                    <div class="btnextraroom">
-                      {item.children.map(child => (
-                      <Contentdropdown title={child.title} id={child._id}/>
+                    <div className="btnextraroom">
+                      {item.children.map((child,i) => (
+                      <Contentdropdown title={child.title} key={i} id={child._id}/>
                       ))}
                     </div>
                   </DropdownItem>

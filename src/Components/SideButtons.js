@@ -5,7 +5,7 @@ import './../Css/SideNav.css'
 function SideButtons({icon,text,path}) {
   return (
     <div>
-        <Link to={path} type="submit" class="btn btn-primary p-1 navbutton" >
+        <Link to={path} type="submit" className="btn btn-primary p-1 navbutton" >
          {icon}  {text}
         </Link>
     </div>

@@ -10,7 +10,7 @@ function ModalForm({text}) {
   return (
 
     <div>
-        <button onClick={() => setmodalIsOpen(true)} type="submit" class="btn btn-primary p-1 navbutton" >
+        <button onClick={() => setmodalIsOpen(true)} type="submit" className="btn btn-primary p-1 navbutton" >
                 {text}
         </button>
 
@@ -34,7 +34,7 @@ function ModalForm({text}) {
                 }
               }
               >
-                  <div class="container-fluid  ">
+                  <div className="container-fluid  ">
                     <div className='row'>
                       <div className='col-6 Leftcol'>
                         <div className='container Modalcontent'>
@@ -46,7 +46,7 @@ function ModalForm({text}) {
                           </div>
                           <button type="button" 
                                 onClick={() => setmodalIsOpen(false)} 
-                                class="btn btn-primary Modalbtn boldfont rounded mt-5 "
+                                className="btn btn-primary Modalbtn boldfont rounded mt-5 "
                           > Create
                           </button>
                         </div>
@@ -62,13 +62,13 @@ function ModalForm({text}) {
                               <FaUserPlus style={{fontSize:"3.5rem"}} />
                             </div>
                           </div>
-                          <input class="form-control form-control-md w-100 mt-1  container-fluid" 
+                          <input className="form-control form-control-md w-100 mt-1  container-fluid" 
                                   type="text" 
                                   name="code" 
                                   id="code" 
                                   placeholder={"udp-ctxp-cue" }
                                   />
-                          <button class="btn btn-primary Modalbtn boldfont rounded mt-2 " 
+                          <button className="btn btn-primary Modalbtn boldfont rounded mt-2 " 
                                   type="submit" 
                                   onClick={() => setmodalIsOpen(false)} >
                               Enter

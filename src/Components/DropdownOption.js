@@ -25,15 +25,15 @@ export default class DropdownItem extends React.Component {
   render() {
     return (
       <div id={this.props.id}>
-        <div class="pb-2">
+        <div className="pb-2">
           
           <button className={this.state.hover} >
-            <div class="row">
-              <Link class="col textdecor" to="/menu/section1">
+            <div className="row">
+              <Link className="col textdecor" to="/menu/section1">
                 <FaUsers className='Fausers mx-3' />
                 {this.props.title}
               </Link>
-              <div class="col-lg-2" onClick={this.onDropdownClicked} >
+              <div className="col-lg-2" onClick={this.onDropdownClicked} >
                 {this.state.dropdownToggleIcon}
               </div>
             </div>

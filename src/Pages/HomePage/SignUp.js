@@ -16,21 +16,21 @@ export default function SignUp() {
     }
 
   return (
-      <div class="container-fluid pt-5">
-          <div class="container-xl ">
-                        <h3 class="text-center titleheader boldfont mt-5 pb-4">SIGNUP</h3>
+      <div className="container-fluid pt-5">
+          <div className="container-xl ">
+                        <h3 className="text-center titleheader boldfont mt-5 pb-4">SIGNUP</h3>
 
                         <form className="container-fluid signupsize" onSubmit={handleSubmit} >
 
-                        <div class="row g-2 align-items-center form-group"> 
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text p-3" id="basic-addon1">
+                        <div className="row g-2 align-items-center form-group"> 
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text p-3" id="basic-addon1">
                                                 <FaUserAlt/>
                                             </span>
                                         </div>
                                         <input type="text" 
-                                                class="form-control" 
+                                                className="form-control" 
                                                 placeholder="Fullname" 
                                                 aria-label="Fullname" 
                                                 aria-describedby="basic-addon1" 
@@ -39,15 +39,15 @@ export default function SignUp() {
                                     </div>
                                 </div>
 
-                            <div class="row g-2 align-items-center form-group"> 
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text p-3" id="basic-addon1">
+                            <div className="row g-2 align-items-center form-group"> 
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text p-3" id="basic-addon1">
                                                 <FaEnvelope/>
                                             </span>
                                         </div>
                                         <input type="text" 
-                                                class="form-control" 
+                                                className="form-control" 
                                                 placeholder="Email" 
                                                 aria-label="Email" 
                                                 aria-describedby="basic-addon1" 
@@ -56,15 +56,15 @@ export default function SignUp() {
                                     </div>
                                 </div>
                             
-                                <div class="row g-2 align-items-center form-group"> 
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text p-3" id="basic-addon1">
+                                <div className="row g-2 align-items-center form-group"> 
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text p-3" id="basic-addon1">
                                                 <FaIdBadge/>
                                             </span>
                                         </div>
                                         <input type="text" 
-                                                class="form-control" 
+                                                className="form-control" 
                                                 placeholder="Username" 
                                                 aria-label="Username" 
                                                 aria-describedby="basic-addon1" 
@@ -73,8 +73,8 @@ export default function SignUp() {
                                     </div>
                                 </div>
 
-                            {/* <div class="row g-2 align-items-center form-group"> 
-                              <select class="form-control form-control-lg mt-4" 
+                            {/* <div className="row g-2 align-items-center form-group"> 
+                              <select className="form-control form-control-lg mt-4" 
                                         onChange={(e)=> setPosition(e.target.value)}
                                         name="position">
 
@@ -85,15 +85,15 @@ export default function SignUp() {
                             </div> */}
 
 
-                            <div class="row g-2 align-items-center form-group"> 
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text p-3" id="basic-addon1">
+                            <div className="row g-2 align-items-center form-group"> 
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text p-3" id="basic-addon1">
                                                 <FaLock/>
                                             </span>
                                         </div>
                                         <input type="text" 
-                                                class="form-control" 
+                                                className="form-control" 
                                                 placeholder="Password" 
                                                 aria-label="Password" 
                                                 aria-describedby="basic-addon1" 
@@ -103,15 +103,15 @@ export default function SignUp() {
                                 </div>
 
 
-                                <div class="row g-2 align-items-center form-group"> 
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text p-3" id="basic-addon1">
+                                <div className="row g-2 align-items-center form-group"> 
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text p-3" id="basic-addon1">
                                                 <FaLock/>
                                             </span>
                                         </div>
                                         <input type="text" 
-                                                class="form-control" 
+                                                className="form-control" 
                                                 placeholder="Comfirm Password" 
                                                 aria-label="Password" 
                                                 aria-describedby="basic-addon1" 
@@ -121,14 +121,14 @@ export default function SignUp() {
                                 </div>
 
 
-                            <Link to="/"  type="submit" class="btn btn-primary w-100 Signupbtn boldfont rounded mt-5 p-2" >CREATE ACCOUNT</Link>
+                            <Link to="/"  type="submit" className="btn btn-primary w-100 Signupbtn boldfont rounded mt-5 p-2" >CREATE ACCOUNT</Link>
                             {/* <p>Name: {fullname}</p>
                             <p>User: {username}</p>
                             <p>Position: {select}</p>
                             <p>Practitioner: {practitioner}</p>
                             <p>Pass: {password}</p> */}
-                            <div class="SignUpTerms">
-                                By clicking “<b>Create Account</b>” above, you acknowledge that you have read and understood, and agree to the <Link class="link-primary">Terms and Condition </Link>  and <Link href="#" class="link-primary">Privacy Policy</Link>
+                            <div className="SignUpTerms">
+                                By clicking “<b>Create Account</b>” above, you acknowledge that you have read and understood, and agree to the <Link className="link-primary">Terms and Condition </Link>  and <Link href="#" className="link-primary">Privacy Policy</Link>
                             </div>
                             
                         </form>

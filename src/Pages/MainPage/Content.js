@@ -11,14 +11,13 @@ export default function Content() {
   const { id } = useParams()
 
   const [roomContent, setRoomContent] = useState(null);
-
+  // eslint-disable-next-line
   useEffect(() => {
-
     let data = fakedata.find( ({_id}) => id === _id );
     if ( data !== undefined){
     setRoomContent(data)}
     console.log(roomContent,id)
-  }, [id])
+  }, [id, roomContent])
   
 
   return (
@@ -30,26 +29,26 @@ export default function Content() {
 
           roomContent.title !== null ?  
 
-          <TextArea css={'heading'} placeholder={'Your Title'} val={roomContent.title} lineheight={'54'}/>
+          <TextArea css={'heading'} placeholder={'Your Title'} item={roomContent.title} lineheight={54}/>
           
           : ""
         
           ): "" } 
      
           </div>
-          <div class="pt-2">
+          <div className="pt-2">
         
           {roomContent !== null && roomContent !== undefined ? (
             roomContent.description !== null ?  
 
-            <TextArea css={'description'} placeholder={'Enter Decription'} val={roomContent.description} lineheight={'24'}/>
+            <TextArea css={'description'} placeholder={'Enter Decription'} item={roomContent.description} lineheight={24}/>
             
             : "" 
           ): "" }
 
           
           </div>
-          <div class="pt-4">
+          <div className="pt-4">
             <Uploader />
           </div>  
           

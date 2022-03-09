@@ -9,7 +9,7 @@ import { fakedata } from './../Models/fakedata'
 
 
 function Sidenavbar({name,id}) {
-
+// eslint-disable-next-line
 const [userId, setUserId] = useState("6225f4d6d3342c3921e304d8");
 const [personalRooms, setPersonalRooms] = useState(null);
 const [publicRooms, setPublicRooms] = useState(null);
@@ -52,8 +52,8 @@ useEffect(() => {
                 {personalRooms !== null ? <Room name={"Personal"} roomDetails={personalRooms}/> : ""}
                 
             </div>
-            <div class=" row "> 
-                <hr class="text-dark "/>
+            <div className=" row "> 
+                <hr className="text-dark "/>
 
                 <div className='my-1'>
                     

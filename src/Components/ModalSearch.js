@@ -14,7 +14,7 @@ function ModalSearch({text}) {
   return (
 
     <div>
-        <button onClick={() => setmodalIsOpen(true)} type="submit" class="btn btn-primary p-1 navbutton" >
+        <button onClick={() => setmodalIsOpen(true)} type="submit" className="btn btn-primary p-1 navbutton" >
                <FaSearch /> {text}
         </button>
 
@@ -38,16 +38,16 @@ function ModalSearch({text}) {
                 }
               }
               >
-                  <div class="container-fluid  ">
+                  <div className="container-fluid  ">
                     <div className='container Searchborder'>
-                      <div class="input-group">
-                        <div class=" Searchstyle">
+                      <div className="input-group">
+                        <div className=" Searchstyle">
                           <span id="basic-addon1">
                             <FaSearch style={{fontSize:"2rem", color:"#aaa"}}/>
                           </span>
                         </div>
                         <input type="text" 
-                          class="form-control Searchform" 
+                          className="form-control Searchform" 
                           placeholder="Search" 
                           aria-label="Search" 
                           aria-describedby="basic-addon1" 
@@ -59,8 +59,8 @@ function ModalSearch({text}) {
                     <div class="container-fluid">
                       <Tabs>
                         <Panel title="All">
-                              {subjectlist.map(subject => (
-                                  <Contentdropdown title={subject.Subject}/>
+                              {subjectlist.map((subject,i) => (
+                                  <Contentdropdown key={i} title={subject.Subject}/>
                                   ))}
                         </Panel>
                         <Panel title="Rooms">

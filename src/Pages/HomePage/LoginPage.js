@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { Link } from 'react-router-dom';
 import {FaUser,FaLock} from 'react-icons/fa';
 import "./../../Css/Home.css"
+// eslint-disable-next-line
 import { fakedata } from "../../Models/fakedata";
 
 
@@ -16,22 +17,22 @@ export default function LoginPage () {
     return(
         <div>
             <div >
-            <div class="container-fluid ">
-                <div class="container p-5 shadow-lg loginForm"> 
-                    <h3 class="text-center pb-4 pt-2 Logindesign">LOGIN</h3>
+            <div className="container-fluid ">
+                <div className="container p-5 shadow-lg loginForm"> 
+                    <h3 className="text-center pb-4 pt-2 Logindesign">LOGIN</h3>
 
                     <form  onSubmit={handleSubmit}>
 
-                            <div class="row g-2 align-items-center form-group"> 
+                            <div className="row g-2 align-items-center form-group"> 
                                     <label htmlFor="username" className="formdesign">Username</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text p-3" id="basic-addon1">
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text p-3" id="basic-addon1">
                                                 <FaUser/>
                                             </span>
                                         </div>
                                         <input type="text" 
-                                                class="form-control" 
+                                                className="form-control" 
                                                 placeholder="Type your username" 
                                                 aria-label="Username" 
                                                 aria-describedby="basic-addon1" 
@@ -40,16 +41,16 @@ export default function LoginPage () {
                                     </div>
                                 </div>
 
-                                <div class="row g-2 align-items-center form-group mt-1"> 
+                                <div className="row g-2 align-items-center form-group mt-1"> 
                                     <label htmlFor="password" className="formdesign">Password</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text p-3" id="basic-addon1">
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text p-3" id="basic-addon1">
                                                 <FaLock/>
                                             </span>
                                         </div>
                                         <input type="password" 
-                                                class="form-control" 
+                                                className="form-control" 
                                                 placeholder="Type your password" 
                                                 aria-label="password" 
                                                 aria-describedby="basic-addon1" 
@@ -58,24 +59,24 @@ export default function LoginPage () {
                                     </div>
                                 </div>
 
-                                <div class="row mt-3">
-                                    <div class="col-7 d-flex flex-row" >
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="Remember"/>
-                                            <label class="form-check-label formdesign" for="Remember">Remember Password</label>
+                                <div className="row mt-3">
+                                    <div className="col-7 d-flex flex-row" >
+                                        <div className="form-check">
+                                            <input type="checkbox" className="form-check-input" id="Remember"/>
+                                            <label className="form-check-label formdesign" for="Remember">Remember Password</label>
                                         </div>
                                     </div>
-                                    <div class="col-5 d-flex flex-row-reverse ">
-                                        <Link to="/" class="text-decoration-none text-dark formdesign">Forget Password?</Link>
+                                    <div className="col-5 d-flex flex-row-reverse ">
+                                        <Link to="/" className="text-decoration-none text-dark formdesign">Forget Password?</Link>
                                     </div>
-                                    <Link to="/menu/1" type="submit" class="btn btn-primary w-100 Signupbtn boldfont rounded mt-5 p-2" >Login</Link>
+                                    <Link to="/menu/1" type="submit" className="btn btn-primary w-100 Signupbtn boldfont rounded mt-5 p-2" >Login</Link>
                                 </div>
                     </form>
 
                     <hr/>
-                            <div class="text-center formdesign">
+                            <div className="text-center formdesign">
                                 Don't have an Account?  
-                                <Link to="/signup" class="px-4 text-decoration-none text-dark formdesign">SIGN UP</Link>
+                                <Link to="/signup" className="px-4 text-decoration-none text-dark formdesign">SIGN UP</Link>
                             </div>
                 </div>
             </div>

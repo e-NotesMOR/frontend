@@ -1,58 +1,42 @@
-import React from "react";
+import React,{useState, useEffect} from 'react'
 
+function TextArea({lineheight,css,item}) {
+  // eslint-disable-next-line
+  const [minRows, setMinRows] = useState(1);
+  // eslint-disable-next-line
+  const [maxRows, setMaxRows] = useState(100);
+  const [rows, setRows] = useState(1);
+  const [value,setValue] = useState(item);
 
-export default class Decription extends React.PureComponent {
-	constructor(props) {
-		super(props);
-		this.state = {
-			value: this.props.val,
-			
-			rows: 1,
-			minRows: 1,
-			maxRows: 100,
-		};
-	}
+  useEffect(() => {
+    setValue(item);
+  }, [item]);
 
-	
-	handleChange = (event) => {
-		const textareaLineHeight = this.props.lineheight;
-		const { minRows, maxRows } = this.state;
-		
-		const previousRows = event.target.rows;
-  	event.target.rows = minRows; // reset number of rows in textarea 
-		
-		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
-    
-    if (currentRows === previousRows) {
-    	event.target.rows = currentRows;
-    }
-		
-		if (currentRows >= maxRows) {
-			event.target.rows = maxRows;
-			event.target.scrollTop = event.target.scrollHeight;
-		}
-    
-  	this.setState({
-		val: event.target.value,
-		value: this.props.val,
-      rows: currentRows < maxRows ? currentRows : maxRows,
-    });
-	};
-	
-	render() {
-		return (
-			<>
-			<textarea
-				rows={this.state.rows}
-				value={this.props.val}
-				placeholder={this.props.placeholder}
-				className={this.props.css}
-				onChange={this.handleChange}
-			/>
-			{console.log(this.state.value)}
-			</>
-		);
-	}
+  const handleChange = (e)=>{
+      console.log(e.target.value);
+      let textareaLineHeight = lineheight;
+      let previousRows = e.target.rows;
+    e.target.rows = minRows;
+      let currentRows =  Math.floor(e.target.scrollHeight / textareaLineHeight);
+
+      if (currentRows === previousRows) {
+          e.target.rows = currentRows;
+      }
+
+      if (currentRows >= maxRows) {
+          e.target.rows = maxRows;
+      }
+
+      setValue(e.target.value);
+      setRows(currentRows < maxRows ? currentRows : maxRows)
+  }
+
+  return (
+    <div>
+        <textarea name="text" rows={rows} value={value} onChange={handleChange} className={css}></textarea>
+        <br />        
+    </div>
+  )
 }
 
-
+export default TextArea
