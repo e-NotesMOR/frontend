@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 // import model from '../Models/model'
 // import SideButtons from './SideButtons'
 import DropdownItem from './DropdownItem'
@@ -8,9 +8,9 @@ import Contentdropdown from './Contentdropdown'
 
 function Room({name , roomDetails}) {
 
-  useEffect(() => {
-    console.log(roomDetails)
-  }, [roomDetails])
+  // useEffect(() => {
+  //   console.log(roomDetails)
+  // }, [roomDetails])
   
   return (
     <div>
@@ -21,10 +21,8 @@ function Room({name , roomDetails}) {
 
             <div className="roomsize ">
               <div className="mt-2">
-              
               {roomDetails.map((item, i) => (
                 <div key={i}>
-
                   <DropdownItem title={item.title} id={item._id}>
                     <div className="btnextraroom">
                       {item.children.map((child,i) => (

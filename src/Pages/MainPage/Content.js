@@ -4,7 +4,8 @@ import Uploader from '../../Components/Uploader';
 import './../../App.css';
 import { useParams } from 'react-router-dom';
 import { fakedata } from '../../Models/fakedata';
-
+import Comments from '../../Components/Comments';
+import Members from '../../Components/Members';
 
 export default function Content() {
 
@@ -15,8 +16,7 @@ export default function Content() {
   useEffect(() => {
     let data = fakedata.find( ({_id}) => id === _id );
     if ( data !== undefined){
-    setRoomContent(data)}
-    console.log(roomContent,id)
+      setRoomContent(data)}
   }, [id, roomContent])
   
 
@@ -24,34 +24,30 @@ export default function Content() {
   <div className='dashboard yoverflow '> 
     <div className='maincontent container'> 
       <div className="row ">
-          <div>
           {roomContent !== null && roomContent !== undefined ? (
+            <>
+              <div>
+                  {roomContent.title !== null ? <TextArea css={'heading'} placeholder={'Your Title'} item={roomContent.title} lineheight={54}/>: ""}
+              </div>
 
-          roomContent.title !== null ?  
+              <div className="pt-2">
+                  {roomContent.description !== null ?  <TextArea css={'description'} placeholder={'Enter Decription'} item={roomContent.description} lineheight={24}/>: ""}
+              </div>
 
-          <TextArea css={'heading'} placeholder={'Your Title'} item={roomContent.title} lineheight={54}/>
-          
-          : ""
-        
-          ): "" } 
-     
-          </div>
-          <div className="pt-2">
-        
-          {roomContent !== null && roomContent !== undefined ? (
-            roomContent.description !== null ?  
+              <div className="pt-4">        
+                <Uploader />
+              </div>
 
-            <TextArea css={'description'} placeholder={'Enter Decription'} item={roomContent.description} lineheight={24}/>
-            
-            : "" 
-          ): "" }
+              {/* ikaw na bahala mag design, ginawa ko lang mapping*/}
+              <div>
+                {roomContent.comments.length>0 ? <Comments commentList={roomContent.comments}/>:''}    
+              </div>
 
-          
-          </div>
-          <div className="pt-4">
-            <Uploader />
-          </div>  
-          
+              <div>
+                  {roomContent.members.length> 1? <Members memberList={roomContent.members}/>: ''}
+              </div>
+            </>  
+            ): "" } 
       </div>
     </div>
 

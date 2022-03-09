@@ -14,6 +14,7 @@ export default class Uploader extends React.Component {
 	
 	handleSubmit (evt) {
 		evt.preventDefault();
+		console.log("submitted");
 	}
 	
 	handleInputChange (evt) {
@@ -38,6 +39,7 @@ export default class Uploader extends React.Component {
 						onChange={this.handleInputChange}
 						ref={input => this.fileInput = input}
 						className="form-control" />
+					<input type="submit" value="submit" className="form-control"  />
 				</label>
 				
 			</form>

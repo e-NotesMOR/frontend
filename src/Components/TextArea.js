@@ -16,7 +16,7 @@ function TextArea({lineheight,css,item}) {
       console.log(e.target.value);
       let textareaLineHeight = lineheight;
       let previousRows = e.target.rows;
-    e.target.rows = minRows;
+      e.target.rows = minRows;
       let currentRows =  Math.floor(e.target.scrollHeight / textareaLineHeight);
 
       if (currentRows === previousRows) {
