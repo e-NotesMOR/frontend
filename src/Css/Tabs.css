@@ -1,0 +1,32 @@
+.tab {
+  width: 100%;
+  color: #0A0A23;
+  padding-top: 20px;
+  display: inline-block;
+  border-top:#aaa solid 1px;
+  min-height: 45vh;
+}
+
+.tabUL {
+  list-style: none;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #0A0A23;
+  float: left;
+  /* -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px; */
+}
+.tabLI{
+  display: inline-block;
+  padding: 5px 50px; 
+  cursor: pointer ;
+  color: #aaa;
+}
+
+.selected {
+  color: #444;
+  border-bottom: #0A0A23 solid 2px;
+}

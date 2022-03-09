@@ -1,0 +1,23 @@
+export const subjectlist = [
+    {
+        Subject:"Microprocessors",
+    },
+    {
+        Subject:"Electives"
+    },
+    {
+        Subject:"Research"
+    },
+    {
+        Subject:"Ethics"
+    },
+    {
+        Subject:"OJT"
+    },
+    {
+        Subject:"Panitikan",
+    },
+    {
+        Subject:"Dsp",
+    },
+  ]
