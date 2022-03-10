@@ -1,11 +1,11 @@
 import React,{useState, useEffect} from 'react'
 
-function TextArea({lineheight,css,item}) {
+function TextArea({lineheight,css,item,row, placeholder}) {
   // eslint-disable-next-line
-  const [minRows, setMinRows] = useState(1);
+  const [minRows, setMinRows] = useState(row);
   // eslint-disable-next-line
   const [maxRows, setMaxRows] = useState(100);
-  const [rows, setRows] = useState(1);
+  const [rows, setRows] = useState(row);
   const [value,setValue] = useState(item);
 
   useEffect(() => {
@@ -33,8 +33,7 @@ function TextArea({lineheight,css,item}) {
 
   return (
     <div>
-        <textarea name="text" rows={rows} value={value} onChange={handleChange} className={css}></textarea>
-        <br />        
+        <textarea name="text" rows={rows} value={value} onChange={handleChange} placeholder={placeholder} className={css}></textarea>       
     </div>
   )
 }

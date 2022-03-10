@@ -6,7 +6,7 @@ import Contentdropdown from './Contentdropdown'
 // import { list } from '../Models/list'
 // import {subjectlist } from '../Models/subjectlist'
 
-function Room({name , roomDetails}) {
+function Room({name , roomDetails , parenticon}) {
 
   // useEffect(() => {
   //   console.log(roomDetails)
@@ -23,7 +23,7 @@ function Room({name , roomDetails}) {
               <div className="mt-2">
               {roomDetails.map((item, i) => (
                 <div key={i}>
-                  <DropdownItem title={item.title} id={item._id}>
+                  <DropdownItem title={item.title} id={item._id} parenticon={parenticon}>
                     <div className="btnextraroom">
                       {item.children.map((child,i) => (
                       <Contentdropdown title={child.title} key={i} id={child._id}/>

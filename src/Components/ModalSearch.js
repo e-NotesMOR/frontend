@@ -19,7 +19,8 @@ function ModalSearch({text}) {
         </button>
 
         <Modal 
-              isOpen={modalIsOpen} 
+              isOpen={modalIsOpen}
+              ariaHideApp={false}
               onRequestClose={() => setmodalIsOpen(false)} 
               style={
                 {

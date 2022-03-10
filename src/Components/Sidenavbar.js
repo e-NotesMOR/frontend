@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaUsers , FaUserAlt } from "react-icons/fa";
 import './../Css/SideNav.css'
 import SideButtons from './SideButtons';
 import ModalSearch from './ModalSearch';
@@ -48,8 +48,8 @@ useEffect(() => {
                 </div>
             <div className='roomcontent'>
 
-                {publicRooms !== null ? <Room name={"Rooms"} roomDetails={publicRooms}/> : ""}
-                {personalRooms !== null ? <Room name={"Personal"} roomDetails={personalRooms}/> : ""}
+                {publicRooms !== null ? <Room name={"Rooms"} roomDetails={publicRooms}  parenticon={<FaUsers className='Fausers mx-3' />}/> : ""}
+                {personalRooms !== null ? <Room name={"Personal"} roomDetails={personalRooms}  parenticon={<FaUserAlt className='Fausers mx-3' />}/> : ""}
                 
             </div>
             <div className=" row "> 
