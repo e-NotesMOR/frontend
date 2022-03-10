@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import Modal from 'react-modal'
 import {FaUserPlus , FaPencilAlt} from 'react-icons/fa'
+// import { Link } from 'react-router-dom'
+import ModalAdd from './ModalAdd'
 
 function ModalForm({text}) {
 
@@ -15,7 +17,8 @@ function ModalForm({text}) {
         </button>
 
         <Modal 
-              isOpen={modalIsOpen} 
+              isOpen={modalIsOpen}
+              ariaHideApp={false}
               onRequestClose={() => setmodalIsOpen(false)} 
               style={
                 {
@@ -44,11 +47,10 @@ function ModalForm({text}) {
                               <FaPencilAlt style={{fontSize:"3.5rem"}} />
                             </div>
                           </div>
-                          <button type="button" 
-                                onClick={() => setmodalIsOpen(false)} 
-                                className="btn btn-primary Modalbtn boldfont rounded mt-5 "
-                          > Create
-                          </button>
+                          
+                            <ModalAdd text={"Create"} />
+
+                         
                         </div>
                       </div>
 

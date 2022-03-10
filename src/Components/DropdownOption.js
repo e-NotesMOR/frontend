@@ -1,10 +1,9 @@
 import React from "react";
 import { Collapse } from "react-collapse";
-import { FaUsers} from 'react-icons/fa';
-import { Link } from "react-router-dom";
-import "./SideNav.css"
+import "./../Css/SideNav.css"
+import { FaEllipsisH } from "react-icons/fa"
 
-export default class DropdownItem extends React.Component {
+export default class DropdownOption extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,20 +24,11 @@ export default class DropdownItem extends React.Component {
   render() {
     return (
       <div id={this.props.id}>
-        <div className="pb-2">
-          
-          <button className={this.state.hover} >
-            <div className="row">
-              <Link className="col textdecor" to="/menu/section1">
-                <FaUsers className='Fausers mx-3' />
-                {this.props.title}
-              </Link>
-              <div className="col-lg-2" onClick={this.onDropdownClicked} >
-                {this.state.dropdownToggleIcon}
-              </div>
-            </div>
-          </button>
-        </div>
+          <div onClick={this.onDropdownClicked} >
+                {/* {this.state.dropdownToggleIcon} */}
+                <FaEllipsisH style={{fontSize:"2rem"}}/>
+          </div>
+
 
         <Collapse isOpened={this.state.isDropdownOpen}>
           <div>{this.props.children}</div>

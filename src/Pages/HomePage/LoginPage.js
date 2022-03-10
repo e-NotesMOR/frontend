@@ -69,7 +69,7 @@ export default function LoginPage () {
                                     <div className="col-5 d-flex flex-row-reverse ">
                                         <Link to="/" className="text-decoration-none text-dark formdesign">Forget Password?</Link>
                                     </div>
-                                    <Link to="/menu/1" type="submit" className="btn btn-primary w-100 Signupbtn boldfont rounded mt-5 p-2" >Login</Link>
+                                    <Link to="/menu/create" type="submit" className="btn btn-primary w-100 Signupbtn boldfont rounded mt-5 p-2" >Login</Link>
                                 </div>
                     </form>
 
