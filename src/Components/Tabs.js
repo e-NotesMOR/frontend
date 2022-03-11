@@ -3,11 +3,12 @@ import "./../Css/Tabs.css"
 
 class Tabs extends Component {
   state = {
-    selected: this.props.selected || 0
+    selected: this.props.selected || 0,
   };
 
   handleChange(index) {
     this.setState({ selected: index });
+    this.props.parentCallback(this.props.children[this.state.selected]);
   }
 
   render() {
@@ -27,7 +28,6 @@ class Tabs extends Component {
             );
           })}
         </ul>
-  
             <div className="tab">{this.props.children[this.state.selected]}</div>
 
       </div>

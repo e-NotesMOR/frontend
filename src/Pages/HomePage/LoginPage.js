@@ -1,23 +1,72 @@
 import React,{useState} from "react";
-import { Link } from 'react-router-dom';
+import { Link,useHistory  } from 'react-router-dom';
 import {FaUser,FaLock} from 'react-icons/fa';
 import "./../../Css/Home.css"
 // eslint-disable-next-line
 import { fakedata } from "../../Models/fakedata";
-
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginPage () {
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
+    let backendUrl = process.env.REACT_APP_BACKEND_URL;
 
-     const handleSubmit = (e) =>{
+    const loginUser = () =>{
+        let fetchUser = new Promise(async(resolve,reject)=>{
+            try{
+                let result = await axios.post(`${backendUrl}/api/logins`,{email:username,password});
+                if(result.data.error){
+                    // console.log(result.data);
+                    setTimeout(()=>reject(result.data), 3000)
+                }
+                else {
+                    setTimeout(()=>resolve(result.data), 3000)
+                }
+            }catch(err){   
+                setTimeout(reject, 3000)
+                console.log(err);
+
+            }
+        }) 
+
+        toast.promise(
+            fetchUser,
+            {
+                pending: 'Request is pending',
+                success: 'Request resolved',
+                error: 'Request rejected'
+            }
+        )
+        return fetchUser;
+    }
+
+    
+    const history = useHistory();
+    const handleSubmit = async(e) =>{
         e.preventDefault();
         console.log(username, password);
+        console.log(process.env.REACT_APP_BACKEND_URL)
+        let details;
+        try{
+            details = await loginUser();
+            if(details.userId){
+              localStorage.setItem('userId',details.userId);
+              history.push('/menu/1');
+            }
+        }catch(err){
+            console.log(err);
+        }   
+        console.log(details);
+      
+        
     }
     return(
         <div>
             <div >
             <div className="container-fluid ">
+                <ToastContainer/>
                 <div className="container p-5 shadow-lg loginForm"> 
                     <h3 className="text-center pb-4 pt-2 Logindesign">LOGIN</h3>
 
@@ -63,13 +112,15 @@ export default function LoginPage () {
                                     <div className="col-7 d-flex flex-row" >
                                         <div className="form-check">
                                             <input type="checkbox" className="form-check-input" id="Remember"/>
-                                            <label className="form-check-label formdesign" for="Remember">Remember Password</label>
+                                            <label className="form-check-label formdesign" htmlFor="Remember">Remember Password</label>
                                         </div>
                                     </div>
                                     <div className="col-5 d-flex flex-row-reverse ">
                                         <Link to="/" className="text-decoration-none text-dark formdesign">Forget Password?</Link>
                                     </div>
-                                    <Link to="/menu/create" type="submit" className="btn btn-primary w-100 Signupbtn boldfont rounded mt-5 p-2" >Login</Link>
+                                    {/* <Link to="/menu/1"> */}
+                                        <input type="submit" onClick={handleSubmit} value="Login" className="btn btn-primary w-100 Signupbtn boldfont rounded mt-5 p-2" />    
+                                    {/* </Link> */}
                                 </div>
                     </form>
 

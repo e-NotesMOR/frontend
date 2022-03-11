@@ -4,18 +4,67 @@ import {FaUserPlus , FaPencilAlt} from 'react-icons/fa'
 // import { Link } from 'react-router-dom'
 import ModalAdd from './ModalAdd'
 
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function ModalForm({text}) {
 
-    const  [modalIsOpen , setmodalIsOpen ] = useState(false)
+  const  [modalIsOpen , setmodalIsOpen ] = useState(false)
+  const [roomCode,setRoomCode] = useState('');
+  let backendUrl = process.env.REACT_APP_BACKEND_URL;
 
+  const joinRoom = ()=>{
+     let fetchRoom = new Promise(async(resolve,reject)=>{
+       let userId = localStorage.getItem('userId');
+            try{
+                let result = await axios.put(`${backendUrl}/api/rooms`,{userId,code:roomCode});
+                if(result.data.error){
+                    // console.log(result.data);
+                    setTimeout(()=>reject(result.data), 3000)
+                }
+                else {
+                    setTimeout(()=>resolve(result.data), 3000)
+                }
+            }catch(err){   
+                setTimeout(reject, 3000)
+                console.log(err);
+
+            }
+        }) 
+
+        toast.promise(
+            fetchRoom,
+            {
+                pending: 'Request is pending',
+                success: 'Request resolved',
+                error: 'Request rejected'
+            }
+        )
+        return fetchRoom;
+  }
+
+  const handleCodeSubmit = async() =>{
+    let data;
+    try{
+        data = await joinRoom();
+        if(data){
+          console.log(data)
+          window.location.reload(false);
+        }
+    }catch(err){
+        console.log(err);
+    }   
+    setmodalIsOpen(false)
+    
+  }
 
   return (
-
     <div>
         <button onClick={() => setmodalIsOpen(true)} type="submit" className="btn btn-primary p-1 navbutton" >
                 {text}
         </button>
-
+        <ToastContainer/>
         <Modal 
               isOpen={modalIsOpen}
               ariaHideApp={false}
@@ -69,10 +118,12 @@ function ModalForm({text}) {
                                   name="code" 
                                   id="code" 
                                   placeholder={"udp-ctxp-cue" }
+                                  onChange={(e)=>setRoomCode(e.target.value)}
                                   />
                           <button className="btn btn-primary Modalbtn boldfont rounded mt-2 " 
                                   type="submit" 
-                                  onClick={() => setmodalIsOpen(false)} >
+                                  onClick={() => handleCodeSubmit()} >
+
                               Enter
                             </button>
 

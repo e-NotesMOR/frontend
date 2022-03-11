@@ -10,8 +10,8 @@ function Navbar() {
             <Link to="/" className="logo">enotes</Link>
 
             <ul className="navlinks">
-              <li className="list"><Link to="/Login" className="link" >Login</Link></li>
-              <li className="list"><Link to="/Signup" className="contact" >signup</Link></li>
+              <li className="list"><Link to="/login" className="link" >Login</Link></li>
+              <li className="list"><Link to="/signup" className="contact" >signup</Link></li>
             </ul>
 
           </nav>

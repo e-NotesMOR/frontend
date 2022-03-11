@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 
-function TextArea({lineheight,css,item,row, placeholder}) {
+function TextArea({lineheight,css,item,row, placeholder,userValue}) {
   // eslint-disable-next-line
   const [minRows, setMinRows] = useState(row);
   // eslint-disable-next-line
@@ -26,7 +26,7 @@ function TextArea({lineheight,css,item,row, placeholder}) {
       if (currentRows >= maxRows) {
           e.target.rows = maxRows;
       }
-
+      userValue(e.target.value);
       setValue(e.target.value);
       setRows(currentRows < maxRows ? currentRows : maxRows)
   }

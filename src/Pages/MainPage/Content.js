@@ -4,35 +4,72 @@ import Uploader from '../../Components/Uploader';
 import './../../App.css';
 import './../../Css/Content.css'
 import { useParams } from 'react-router-dom';
-import { fakedata } from '../../Models/fakedata';
 import Comments from '../../Components/Comments';
 import { FaEdit} from 'react-icons/fa'
 import Settingsdrop from '../../Components/Settingsdrop';
+import Members from '../../Components/Members';
 
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Content({memberlist}) {
-
   const { id } = useParams()
+  // eslint-disable-next-line
+  const currentUser = localStorage.getItem('userId');
+  // eslint-disable-next-line
+  const [userId, setUserId] = useState(currentUser);
+  let backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+  const [rooms, setRooms] = useState(null);
+  useEffect(()=>{
+    async function fetchRooms() {
+        let fetchThis = new Promise(async(resolve,reject)=>{
+            try{
+                let result = await axios.get(`${backendUrl}/api/rooms`);
+                if(result.data.error){
+                    setTimeout(()=>reject(result.data), 3000)
+                }
+                else {
+                    setRooms(result.data.rooms);
+                    setTimeout(()=>resolve(result.data), 3000)
+                }
+            }catch(err){   
+                setTimeout(reject, 3000)
+                console.log(err);
+
+            }
+        }) 
+
+        toast.promise(
+            fetchThis,
+            {
+                pending: 'Fetching room content',
+                success: 'Room content fetched',
+                error: 'Request rejected'
+            }
+        );  
+      
+    }
+    fetchRooms();
+  },[userId,backendUrl])
+
 
   const [roomContent, setRoomContent] = useState(null);
   // eslint-disable-next-line
   useEffect(() => {
-    let data = fakedata.find( ({_id}) => id === _id );
-    if ( data !== undefined){
-      memberlist(data.members)
-      setRoomContent(data)}
-
-  }, [id, roomContent])
-
-
-  
+    if(rooms !== null){
+      let data = rooms.find( ({_id}) => id === _id );
+      if ( data !== undefined){
+        setRoomContent(data)
+      }
+    }
+  }, [id,rooms, roomContent])
 
   return (
-
   <div className='dashboard yoverflow'> 
- 
+    <ToastContainer/>
     <div className='maincontent container ' > 
-    
       <div className="row ">
           {roomContent !== null && roomContent !== undefined ? (
             <>
@@ -60,19 +97,23 @@ export default function Content({memberlist}) {
                 </div>
               </div>
 
-
+              <div>
+                  {roomContent.members.length> 1? <Members memberList={roomContent.members}/>: ''}
+              </div>
 
               <div className="pt-4">        
                 <Uploader />
               </div>
 
-              {/* ikaw na bahala mag design, ginawa ko lang mapping*/}
               <div>
                 {roomContent.comments.length> 0 ? 
-                <div className='commentsection'>
-                  <Comments commentList={roomContent.comments}/>
-                </div>
-                :''}    
+                  <div className='commentsection'>
+                    <Comments commentList={roomContent.comments}/>
+                  </div>
+                  :<div className='commentsection'>
+                    <Comments/>
+                  </div>
+                }    
               </div>
             </>  
             ): "" } 

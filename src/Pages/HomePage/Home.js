@@ -17,7 +17,7 @@ export default function Home() {
                         "One day I will find the right words, and they will be simple."
                         </div>
                         <div className="">
-                            <Link className="text-decoration-none btn btn-primary buttonhome p-3 mt-5" to="/Signup">get started</Link>
+                            <Link className="text-decoration-none btn btn-primary buttonhome p-3 mt-5" to="/signup">get started</Link>
                         </div>
                     </div>
                 </div>
