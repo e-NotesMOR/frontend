@@ -6,6 +6,7 @@ import ModalSearch from './ModalSearch';
 import Room from './Room';
 import ModalForm from './ModalForm';
 import { fakedata } from './../Models/fakedata'
+import ModalReport from './ModalReport';
 
 
 function Sidenavbar({name,id}) {
@@ -37,7 +38,7 @@ useEffect(() => {
                         <div className='col-2 px-2'>
                             <FaUserCircle className='FaIconSize ' />
                         </div>
-                        <div className='col-10 Textdesign'>
+                        <div className='col-8 Textdesign'>
                             {name} 
                         </div>
                     </div>
@@ -52,12 +53,16 @@ useEffect(() => {
                 {personalRooms !== null ? <Room name={"Personal"} roomDetails={personalRooms}  parenticon={<FaUserAlt className='Fausers mx-3' />}/> : ""}
                 
             </div>
+            
             <div className=" row "> 
+               
                 <hr className="text-dark "/>
 
                 <div className='my-1'>
-                    
                     <ModalForm text={"Join or Create"} />
+                </div>
+                <div className='my-1'>
+                    <ModalReport text={"Submit Report"} />
                 </div>
                 <div className='my-1'>
                     <SideButtons text={"Logout"} path={"/"} />

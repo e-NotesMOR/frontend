@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import Modal from 'react-modal'
+import Modal from 'react-modal' 
 import { Link } from 'react-router-dom'
-// import {FaUserPlus , FaPencilAlt} from 'react-icons/fa'
-import './../Css/option.css'
+import TextArea from './TextArea' 
+import { FaExclamationTriangle } from "react-icons/fa"
 
-function ModalReport({text, icon}) {
+function ModalReport({text,icon}) {
 
     const  [modalIsOpen , setmodalIsOpen ] = useState(false)
 
@@ -12,10 +12,10 @@ function ModalReport({text, icon}) {
   return (
 
     <div>
-        <button type="button"  onClick={() => setmodalIsOpen(true)} className="btn btn-primary p-1 dropoption" >
-               {icon} {text}
+        <button onClick={() => setmodalIsOpen(true)} type="submit" className="btn btn-primary p-1 navbutton" >
+            {text}
         </button>
-        
+
         <Modal 
               isOpen={modalIsOpen}
               ariaHideApp={false}
@@ -27,24 +27,36 @@ function ModalReport({text, icon}) {
                   },
                   content:{
                     margin: 'auto',
-                    height: '80%',
+                    height: '40%',
                     width: '40%',
                     textAlign: 'center',
-                    backgroundColor: 'white',
+                    backgroundColor: 'white)',
                     border: 'none',
                     boxShadow: '0 0px 0px 0 rgba(0,0,0,0.5),0 6px 20px 0 rgba(0,0,0,0.5)'
                   }
                 }
               }
               >
-                  <div className="container-fluid p-5 ">
-
-                    <Link type="button" to="/menu/create"
+                  <div className="container-fluid  ">
+                    <div>
+                      <div className='subreport'>
+                      Submit a Report <FaExclamationTriangle/>
+                      </div>
+                      <div>
+                        Please enter your report in the box bellow! We will review and try to resolve it.
+                      </div>
+                      <div>
+                        <TextArea css={'subdescription'} placeholder={'Enter Report'} item={""} lineheight={24} row={5} />
+                      </div>
+                      <div>
+                      <Link type="button" to="/menu/create"
                                 onClick={() => setmodalIsOpen(false)} 
-                                className="btn btn-primary Modalbtn boldfont rounded mt-5 "
+                                className="btn btn-primary Modalbtn boldfont rounded w-50 mt-3 "
                           > Submit
-                    </Link>
+                          </Link>
+                      </div>
                     </div>
+                  </div>
             </Modal>
 
     </div>

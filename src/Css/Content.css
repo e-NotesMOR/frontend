@@ -2,11 +2,13 @@
 
   /* Menu*/
 .maincontent {
-    margin-top: 80px;
+    margin-top: 60px;
     padding: 10px;
-    width: 80% !important;
+    width: 85% !important;
 	overflow-y: scroll !important;
+	margin-left: 0 !important;
 	/* background-color: aqua; */
+	padding-left: 150px !important;
   }
 
 .yoverflow{

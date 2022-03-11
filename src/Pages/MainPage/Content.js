@@ -6,8 +6,8 @@ import './../../Css/Content.css'
 import { useParams } from 'react-router-dom';
 import { fakedata } from '../../Models/fakedata';
 import Comments from '../../Components/Comments';
-import { FaEdit} from 'react-icons/fa'
 import Settingoption from '../../Components/Settingoption';
+import IconToggle from '../../Components/IconToggle';
 
 
 export default function Content({memberlist}) {
@@ -23,8 +23,6 @@ export default function Content({memberlist}) {
       setRoomContent(data)}
 
   }, [id, roomContent])
-
-
   
 
   return (
@@ -46,11 +44,9 @@ export default function Content({memberlist}) {
                 <div className='col-4'>
                   <div className='row'>
                     <div className='col-2'>
-                        <button className='editicon btn btn-outline-light'>
-                          <FaEdit style={{fontSize:"2rem"}}/>
-                        </button>
+                          <IconToggle />
                     </div>
-                    <div className='col-4'>
+                    <div className='col-5'>
                       <div className='editicon textcenter'>
                         <Settingoption/>
                       </div>

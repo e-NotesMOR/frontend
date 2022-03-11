@@ -14,7 +14,6 @@ function Comments({commentList}) {
         {/* Lagyan mo rin nung comment box tas file attach then send, gamit ka na lang input type file tas tsaka mo designan 
             icon imbis na image https://stackoverflow.com/questions/2855589/replace-input-type-file-by-an-image
         */}
-        {console.log(commentList)}
         <div className='commenttitle'>
             Comments
         </div>

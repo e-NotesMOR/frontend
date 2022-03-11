@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 
-function TextArea({lineheight,css,item,row, placeholder}) {
+function TextArea({lineheight,css,item,row, placeholder, disabled}) {
   // eslint-disable-next-line
   const [minRows, setMinRows] = useState(row);
   // eslint-disable-next-line
@@ -33,7 +33,7 @@ function TextArea({lineheight,css,item,row, placeholder}) {
 
   return (
     <div>
-        <textarea name="text" rows={rows} value={value} onChange={handleChange} placeholder={placeholder} className={css}></textarea>       
+        <textarea name="text" rows={rows} value={value} onChange={handleChange} placeholder={placeholder} className={css} disabled = ""/>       
     </div>
   )
 }
