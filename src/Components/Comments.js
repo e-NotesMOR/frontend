@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaUserCircle, FaDownload } from "react-icons/fa"
+import { FaUserCircle } from "react-icons/fa"
+import MiniUploader from './MiniUploader';
 // import dateFormat from 'dateformat';
 import TextArea from './TextArea';
 
@@ -77,11 +78,15 @@ function Comments({commentList}) {
                     </div>
                     <div className="container row">
                         <div className='col-10'>
+                            <MiniUploader/>
+
+
+
 
                         </div>
                        
                         <div className='col-2'>
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className='col-3'>
                                     <div className="image-upload">
                                         <label htmlFor="file-input" className='pointer'>
@@ -91,10 +96,14 @@ function Comments({commentList}) {
                                     </div>
                                 </div>
                             
-                                <div className='col-9'>
+                                <div className='col-9'> */}
+
+
                                     <div className="btn btn-primary postbtn rounded mx-5" >Post</div>
-                                </div>
-                            </div>
+                                
+                                
+                                {/* </div> */}
+                            {/* </div> */}
                         </div>
                         
                     </div>

@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { fakedata } from '../../Models/fakedata';
 import Comments from '../../Components/Comments';
 import { FaEdit} from 'react-icons/fa'
-import Settingsdrop from '../../Components/Settingsdrop';
+import Settingoption from '../../Components/Settingoption';
 
 
 export default function Content({memberlist}) {
@@ -37,22 +37,22 @@ export default function Content({memberlist}) {
           {roomContent !== null && roomContent !== undefined ? (
             <>
               <div className='row'>
-                <div className='col-9'>
+                <div className='col-8'>
                     {roomContent.title !== null ? <TextArea css={'heading'} placeholder={'Your Title'} item={roomContent.title} lineheight={54} row={1} />: ""}
                     <div className="pt-2">
-                  {roomContent.description !== null ?  <TextArea css={'description'} placeholder={'Enter Decription'} item={roomContent.description} lineheight={24} row={3}/>: ""}
+                    {roomContent.description !== null ?  <TextArea css={'description'} placeholder={'Enter Decription'} item={roomContent.description} lineheight={24} row={3}/>: ""}
               </div>
                 </div>
-                <div className='col-3 p-3'>
+                <div className='col-4'>
                   <div className='row'>
                     <div className='col-2'>
                         <button className='editicon btn btn-outline-light'>
                           <FaEdit style={{fontSize:"2rem"}}/>
                         </button>
                     </div>
-                    <div className='col-5'>
-                      <div className='editicon'>
-                        <Settingsdrop/>
+                    <div className='col-4'>
+                      <div className='editicon textcenter'>
+                        <Settingoption/>
                       </div>
                       </div>
                   </div>

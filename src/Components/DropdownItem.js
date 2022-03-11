@@ -2,6 +2,7 @@ import React from "react";
 import { Collapse } from "react-collapse";
 import { Link } from "react-router-dom";
 import "./../Css/SideNav.css"
+// import Settingoption from "./Settingoption";
 
 export default class DropdownItem extends React.Component {
   constructor(props) {
@@ -32,6 +33,9 @@ export default class DropdownItem extends React.Component {
                 {this.props.parenticon}
                 {this.props.title}
               </Link>
+              <div className="col-lg-2 textdecor ">
+
+              </div>
               <div className="col-lg-2 textdecor " onClick={this.onDropdownClicked} >
                 {this.state.dropdownToggleIcon}
               </div>

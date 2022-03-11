@@ -141,3 +141,10 @@
 	  background-color: white !important;
 	  cursor: pointer !important;
   }
+  .textcenter{
+	  text-align: center !important;
+  }
+
+  .minHeight{
+	min-height: 30vh !important;
+  }
