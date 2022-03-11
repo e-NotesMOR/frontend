@@ -32,7 +32,7 @@ export default class DropdownItem extends React.Component {
                 {this.props.parenticon}
                 {this.props.title}
               </Link>
-              <div className="col-lg-2 textdecor " onClick={this.onDropdownClicked} >
+              <div className="col-lg-2 textdecor" onClick={this.onDropdownClicked} >
                 {this.state.dropdownToggleIcon}
               </div>
             </div>

@@ -92,7 +92,6 @@ useEffect(() => {
                     <ModalSearch text={"Search"} userRooms={myRooms} />
                 </div>
             <div className='roomcontent'>
-
                 {publicRooms !== null ? <Room name={"Rooms"} roomDetails={publicRooms}  parenticon={<FaUsers className='Fausers mx-3' />}/> : ""}
                 {personalRooms !== null ? <Room name={"Personal"} roomDetails={personalRooms}  parenticon={<FaUserAlt className='Fausers mx-3' />}/> : ""}
                 
@@ -102,7 +101,7 @@ useEffect(() => {
 
                 <div className='my-1'>
                     
-                    <ModalForm text={"Join or Create"} />
+                    <ModalForm text={"Join or Create"} userRooms={myRooms}/>
                 </div>
                 <div className='my-1'>
                     <SideButtons text={"Logout"} path={"/"} />

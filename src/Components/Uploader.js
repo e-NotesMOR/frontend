@@ -33,7 +33,7 @@ export default class Uploader extends React.Component {
 						&& <h4 className="mb-4 text-dark">
 								File: <span className="text-danger">{this.state.fileName}</span>
 							</h4>
-				}
+				} 
 				<label>
 					<input type="file"
 						onChange={this.handleInputChange}

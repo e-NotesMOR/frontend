@@ -1,143 +1,176 @@
 /* Content */
 
-  /* Menu*/
+
+/* Menu*/
+
 .maincontent {
     margin-top: 80px;
     padding: 10px;
+    margin-left: 60px !important;
     width: 80% !important;
-	overflow-y: scroll !important;
-	/* background-color: aqua; */
-  }
+    overflow-y: scroll !important;
+    /* background-color: aqua; */
+    overflow: auto;
+    -ms-overflow-style: none;
+    /* IE 11 */
+    scrollbar-width: none;
+    /* Firefox 64 */
+}
 
-.yoverflow{
+.yoverflow {
     overflow: scroll !important;
-  }
-
-.heading{
-  box-sizing: border-box;
-	border: none;
-	resize: none;
-	font-size: 50px;
-	line-height: 54px;
-	height: auto;
-	padding: 8px;
-	font-weight: bolder;
-  outline-style: none !important;
-  width: 80% !important;
-}
-.description{
-	box-sizing: border-box;
-	border: none;
-	resize: none;
-	font-size: 20px;
-	line-height: 24px;
-	height: auto;
-	padding: 8px;
-  outline-style: none !important;
-  width: 80% !important;
 }
 
-.commentsection{
-	width: 80% !important;
-	background-color: rgb(230, 230, 230) !important;
-	padding: 30px;
-	padding-top: 20px !important;
-	border-radius: 10px;
-	margin-top: 50px;
-}
-.commenttitle{
-	margin-bottom: 15px;
-	font-size: 18px !important;
-	font-weight: bold !important;
-}
-.commentname{
-	font-weight: bold;
-	font-size: 16px !important;
-}
-.commentdetails{
-	font-size: 14px !important;
-}
-.membergroup{
-	padding-top: 60px !important;
-	padding-left: 20px !important;
+.heading {
+    box-sizing: border-box;
+    border: none;
+    resize: none;
+    font-size: 50px;
+    line-height: 54px;
+    height: auto;
+    padding: 8px;
+    font-weight: bolder;
+    outline-style: none !important;
+    width: 80% !important;
 }
 
-.privatecomment{
-	background-color: white !important;
-	padding-left: 15px !important;
-	padding-right: 10px !important;
-	padding-top: 15px !important;
-	padding-bottom: 10px !important;
-	margin-bottom: 10px;
-	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.1),0 6px 20px 0 rgba(0,0,0,0.1);
-}
-.membersnames{
-	overflow-y: scroll !important;
-	height: 80vh !important;
-
+.description {
+    box-sizing: border-box;
+    border: none;
+    resize: none;
+    font-size: 20px;
+    line-height: 24px;
+    height: auto;
+    padding: 8px;
+    outline-style: none !important;
+    width: 80% !important;
 }
 
-.membersbox{
-	background-color: white !important;
-	padding-left: 15px !important;
-	padding-right: 10px !important;
-	padding-top: 15px !important;
-	padding-bottom: 10px !important;
-	margin-bottom: 10px;
-	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.1),0 6px 20px 0 rgba(0,0,0,0.1);
+.commentsection {
+    width: 80% !important;
+    background-color: rgb(230, 230, 230) !important;
+    padding: 30px;
+    padding-top: 20px !important;
+    border-radius: 10px;
+    margin-top: 50px;
 }
 
-.commentdate{
-	font-size: 12px;
-	font-weight: bold;
-	color: gray;
-	float: right;
+.commenttitle {
+    margin-bottom: 15px;
+    font-size: 18px !important;
+    font-weight: bold !important;
 }
-.commentarea{
-	box-sizing: border-box;
-	border: none;
-	resize: none;
-	font-size: 14px;
-	height: auto;
-	padding: 8px;
-  border: solid gray 1px !important;
-  width: 100% !important;
+
+.commentname {
+    font-weight: bold;
+    font-size: 16px !important;
 }
-.float{
-	float: right !important;
+
+.commentdetails {
+    font-size: 14px !important;
 }
+
+.membergroup {
+    padding-top: 60px !important;
+    padding-left: 20px !important;
+}
+
+.privatecomment {
+    background-color: white !important;
+    padding-left: 15px !important;
+    padding-right: 10px !important;
+    padding-top: 15px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.membersnames {
+    overflow-y: scroll !important;
+    height: 80vh !important;
+    overflow: auto;
+    -ms-overflow-style: none;
+    /* IE 11 */
+    scrollbar-width: none;
+    /* Firefox 64 */
+}
+
+.membersbox {
+    background-color: white !important;
+    padding-left: 15px !important;
+    padding-right: 10px !important;
+    padding-top: 15px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.commentdate {
+    font-size: 12px;
+    font-weight: bold;
+    color: gray;
+    float: right;
+}
+
+.commentarea {
+    box-sizing: border-box;
+    border: none;
+    resize: none;
+    font-size: 14px;
+    height: auto;
+    padding: 8px;
+    border: solid gray 1px !important;
+    width: 100% !important;
+}
+
+.float {
+    float: right !important;
+}
+
 .image-upload>input {
-	display: none;
-  }
-.pointer{
-	cursor: pointer !important;
-
+    display: none;
 }
-.postbtn{
+
+.pointer {
+    cursor: pointer !important;
+}
+
+.postbtn {
     background-color: #0A0A23!important;
     font-size: 14px !important;
     border-color: #0A0A23!important;
     text-transform: uppercase !important;
-  }
+}
 
-.postbtn:hover{
+.postbtn:hover {
     background-color: #563D7C!important;
     border-color: #563D7C!important;
-  }
+}
 
-  .membernavbar {
+.membernavbar {
     background-color: rgb(230, 230, 230);
     height: 100vh;
     width: 15% !important;
     overflow-y: auto !important;
     box-shadow: 4px 10px 10px 1px #888;
     overflow-x: hidden !important;
-	float: right !important;
-	margin-left: auto !important;
-  }
+    float: right !important;
+    margin-left: auto !important;
+}
 
-  .editicon{
-	  border: none !important;
-	  background-color: white !important;
-	  cursor: pointer !important;
-  }
+.editicon {
+    border: none !important;
+    cursor: pointer !important;
+    width: 100px;
+    font-weight: bold !important;
+    border: 1px solid !important;
+    font-size: 16px !important;
+}
+
+.textcenter {
+    text-align: center !important;
+}
+
+.minHeight {
+    min-height: 30vh !important;
+}

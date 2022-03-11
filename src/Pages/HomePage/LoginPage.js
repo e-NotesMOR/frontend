@@ -53,6 +53,7 @@ export default function LoginPage () {
             details = await loginUser();
             if(details.userId){
               localStorage.setItem('userId',details.userId);
+              localStorage.setItem('userName',details.userName);
               history.push('/menu/1');
             }
         }catch(err){

@@ -5,11 +5,10 @@ import {FaUserPlus , FaPencilAlt} from 'react-icons/fa'
 import ModalAdd from './ModalAdd'
 
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function ModalForm({text}) {
-
+function ModalForm({text,userRooms}) {
   const  [modalIsOpen , setmodalIsOpen ] = useState(false)
   const [roomCode,setRoomCode] = useState('');
   let backendUrl = process.env.REACT_APP_BACKEND_URL;
@@ -19,8 +18,8 @@ function ModalForm({text}) {
        let userId = localStorage.getItem('userId');
             try{
                 let result = await axios.put(`${backendUrl}/api/rooms`,{userId,code:roomCode});
+                console.log(result.data);
                 if(result.data.error){
-                    // console.log(result.data);
                     setTimeout(()=>reject(result.data), 3000)
                 }
                 else {
@@ -50,7 +49,7 @@ function ModalForm({text}) {
         data = await joinRoom();
         if(data){
           console.log(data)
-          window.location.reload(false);
+          window.location.reload();
         }
     }catch(err){
         console.log(err);
@@ -64,7 +63,6 @@ function ModalForm({text}) {
         <button onClick={() => setmodalIsOpen(true)} type="submit" className="btn btn-primary p-1 navbutton" >
                 {text}
         </button>
-        <ToastContainer/>
         <Modal 
               isOpen={modalIsOpen}
               ariaHideApp={false}
@@ -77,9 +75,9 @@ function ModalForm({text}) {
                   content:{
                     margin: 'auto',
                     height: '40%',
-                    width: '40%',
+                    width: '50%',
                     textAlign: 'center',
-                    backgroundColor: 'white)',
+                    backgroundColor: 'white',
                     border: 'none',
                     boxShadow: '0 0px 0px 0 rgba(0,0,0,0.5),0 6px 20px 0 rgba(0,0,0,0.5)'
                   }
@@ -97,7 +95,7 @@ function ModalForm({text}) {
                             </div>
                           </div>
                           
-                            <ModalAdd text={"Create"} />
+                            <ModalAdd text={"Create"} myRooms={userRooms}/>
 
                          
                         </div>

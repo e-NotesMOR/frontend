@@ -5,66 +5,69 @@
     overflow-y: auto !important;
     box-shadow: 2px 0 10px -5px #888;
     overflow-x: hidden !important;
-  }
-
-.FaIconSize{
-  color: #0A0A23 !important;
-  font-size: 1.6rem;
 }
 
-.SideTextsize{
-  width: 100% !important;
-  color: #0A0A23 !important;
-  font-weight: bold !important;
-}
-
- .Fausers{
-  color: #0A0A23 !important;
-  font-size: 1.8rem;
-}
-
-
- .Textdesign{
+.FaIconSize {
     color: #0A0A23 !important;
-    font-size: 16px ;
-    font-weight: bold;
- }
+    font-size: 1.6rem;
+}
 
- .navbutton{
+.SideTextsize {
+    width: 100% !important;
+    color: #0A0A23 !important;
+    font-weight: bold !important;
+}
+
+.Fausers {
+    color: #0A0A23 !important;
+    font-size: 1.8rem;
+}
+
+.Textdesign {
+    color: #0A0A23 !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.navbutton {
     float: right !important;
     font-size: 16px !important;
     width: 100% !important;
     border-radius: 0px!important;
-    outline-style:none !important;
+    outline-style: none !important;
     color: #0A0A23 !important;
     background-color: rgb(230, 230, 230) !important;
     border: none !important;
-  }
+}
 
-  .navbutton:hover{
+.navbutton:hover {
     color: rgb(230, 230, 230) !important;
     background-color: #0A0A23 !important;
-  }
-  .roomcontent{
-    margin-top: 80px !important;
-    min-height:75vh !important;
-  }
- .roomsize{
-   min-height:15vh !important;
- }
- 
- .Rightcol{
-   border-left: #0A0A23 solid 1px !important;
- }
- .Leftcol{
-  border-right: #0A0A23 solid 1px !important;
 }
- 
- .Modalcontent{
-   margin-top: 10px !important;
-   padding: 55px !important;
- }
- .Modalbtn{
+
+.roomcontent {
+    margin-top: 80px !important;
+    min-height: 75vh !important;
+}
+
+.roomsize {
+    min-height: 15vh !important;
+}
+
+.Rightcol {
+    border-left: #0A0A23 solid 1px !important;
+}
+
+.Leftcol {
+    border-right: #0A0A23 solid 1px !important;
+}
+
+.Modalcontent {
+    margin-top: 10px !important;
+    padding: 55px !important;
+}
+
+.Modalbtn {
     color: rgb(230, 230, 230) !important;
     font-size: 20px !important;
     font-weight: bolder !important;
@@ -72,81 +75,85 @@
     background-color: #0A0A23 !important;
     text-transform: uppercase !important;
     width: 75% !important;
- }
- .Modalbtn:hover{
-   background-color: #17174e !important;
- }
-
- .navroombutton{
-  float: left !important;
-  width: 100% !important;
-  border-radius: 0px!important;
-  outline-style:none !important;
-  background-color: rgb(230, 230, 230) !important;
-  border: none !important;
 }
 
-.textdecor{
-  text-decoration: none !important;
-  color: #0A0A23 !important;
-  font-size: 16px !important;
-}
-.textdecor:hover{
-  color: #141442 !important;
+.Modalbtn:hover {
+    background-color: #17174e !important;
 }
 
-
-.btnroom{
-  border-radius: 0px!important;
-  text-align: left !important;
-  border: none !important;
-  outline-style: none !important;
-}
-.btnhover{
-  text-align: left !important;
-  border-radius: 0px!important;
-  background-color: white !important;
-  color: white !important;
-  border: none !important;
+.navroombutton {
+    float: left !important;
+    width: 100% !important;
+    border-radius: 0px!important;
+    outline-style: none !important;
+    background-color: rgb(230, 230, 230) !important;
+    border: none !important;
 }
 
-.btnroom:hover{
-  background-color: white !important;
-  color: white !important;
+.textdecor {
+    text-decoration: none !important;
+    color: #0A0A23 !important;
+    font-size: 16px !important;
 }
 
-.btnextraroom{
-  float: right !important;
-  width: 90% !important;
+.textdecor:hover {
+    color: #141442 !important;
 }
 
- .CreateNote{
-  color: #0A0A23 !important;;
-  font-size: 30px; 
-  font-weight: bold !important;
- }
+.btnroom {
+    border-radius: 0px!important;
+    text-align: left !important;
+    border: none !important;
+    outline-style: none !important;
+}
 
- .Searchstyle{
-   background-color: none !important;
-   border: none !important;
-   padding-right: 10px !important;
- }
- .Searchborder{
-   padding: 10px;
-   border-bottom: #0A0A23 solid 1px !important;
- }
- .Searchform{
-  border: none !important;
-  border-radius: 10px !important;
-  outline: none !important;
- }
-  
+.btnhover {
+    text-align: left !important;
+    border-radius: 0px!important;
+    background-color: white !important;
+    color: white !important;
+    border: none !important;
+}
 
-  ::-webkit-scrollbar {
+.btnroom:hover {
+    background-color: white !important;
+    color: white !important;
+}
+
+.btnextraroom {
+    float: right !important;
+    width: 90% !important;
+}
+
+.CreateNote {
+    color: #0A0A23 !important;
+    ;
+    font-size: 30px;
+    font-weight: bold !important;
+}
+
+.Searchstyle {
+    background-color: none !important;
+    border: none !important;
+    padding-right: 10px !important;
+}
+
+.Searchborder {
+    padding: 10px;
+    border-bottom: #0A0A23 solid 1px !important;
+}
+
+.Searchform {
+    border: none !important;
+    border-radius: 10px !important;
+    outline: none !important;
+}
+
+ ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
 }

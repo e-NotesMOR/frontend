@@ -1,13 +1,85 @@
-import React from 'react'
-import { FaUserCircle, FaDownload } from "react-icons/fa"
+import React,{useState} from 'react'
+import { FaUserCircle,FaTrash } from "react-icons/fa"
 // import dateFormat from 'dateformat';
 import TextArea from './TextArea';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useParams } from 'react-router-dom';
 
 function Comments({commentList}) {
+  let userName = localStorage.getItem('userName');
+  const now = new Date();
+  const [comment,setComment]=useState(null);
+  const [file, setFile] = useState();
+  const { id } = useParams()
+  const currentUser = localStorage.getItem('userId');
+  // eslint-disable-next-line
+  const [userId, setUserId] = useState(currentUser);
 
-    const now = new Date();
+  let backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+
+    const handleChange = (e)=> {
+        setFile(e.target.files[0]);
+    }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
     
+          let formData = new FormData();
+          if(file)
+            formData.append('document', file);
+          formData.append('comment', comment);
+          formData.append('commenter', userId);
+          formData.append('roomId', id);
+                  
+          const config = {
+            headers: {
+              'content-type': 'multipart/form-data',
+            },
+          };
 
+          let uploadFile = new Promise(async(resolve,reject)=>{
+          try{
+              let result = await axios.post(`${backendUrl}/api/profiles/message`, formData, config);
+              if(result.data.error){
+                  setTimeout(()=>reject(result.data), 3000)
+              }
+              else {
+                  setTimeout(()=>resolve(result.data), 3000)
+                  window.location.reload();
+              }
+          }catch(err){   
+              setTimeout(reject, 3000)
+              console.log(err);
+          }
+        }) 
+        toast.promise(
+            uploadFile,
+            {
+                pending: 'Adding comment to room',
+                success: 'Comment added',
+                error: 'Request rejected'
+            }
+        );  
+  }
+
+  const handleDelete = async(comId)=>{
+        if(window.confirm("Do you want to delete this comment?") === true){
+            //USER CONFIRMED
+            let res;
+            try{
+                res  = await axios.delete(`${backendUrl}/api/profiles/message`,{data:{roomId:id,commentId:comId}});
+                console.log(res.data);
+            }catch(err){
+                console.log(err);
+            }
+            if(res.data) {
+                window.location.reload();
+            }  
+        }   
+  }
   return (
     <div>
         {/* Lagyan mo rin nung comment box tas file attach then send, gamit ka na lang input type file tas tsaka mo designan 
@@ -36,6 +108,13 @@ function Comments({commentList}) {
                                         <div className='col-4'>
                                             <label htmlFor="date" className='commentdate'>
                                             {new Date(comment.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})} 
+                                           
+                                            {comment.commenter._id === userId?(
+                                                <label style={{marginLeft:'20px'}}>
+                                                    <button  className="btn" onClick={()=>handleDelete(comment._id)}><FaTrash/></button>
+                                                </label>
+                                            ):''}
+                                      
                                             {/* <br/>
                                             {comment.date} */}
                                             </label>
@@ -43,6 +122,11 @@ function Comments({commentList}) {
 
                                     </div>
                                     <div className='commentdetails'>{comment.comment}</div>
+                                      {comment.file !== undefined && comment.file !== null?( 
+                                            <label className='commentdetails'>
+                                                <a href={backendUrl+'/'+comment.file.path} download target="_blank" rel="noopener noreferrer">{comment.file.originalname}</a>
+                                            </label>)
+                                    :''}
                                 </div>
                             </div>
                           
@@ -63,7 +147,7 @@ function Comments({commentList}) {
                 <div className='col-11 container-fluid'>
                     <div className='row mb-2'> 
                         <div className='col-8'>
-                            <label className='commentname'>Joshua C. Sacabon</label>
+                            <label className='commentname'>{userName}</label>
                         </div>
                         <div className='col-4'>
                             <label htmlFor="date" className='commentdate'>
@@ -72,32 +156,22 @@ function Comments({commentList}) {
                         </div>  
                     </div>
                     <div className='row'> 
-                        <TextArea css={'commentarea'} placeholder={'Add a Comment'} lineheight={18} row={2}/>
+                        <TextArea css={'commentarea'} userValue={(val)=>setComment(val)} placeholder={'Add a Comment'} lineheight={18} row={2}/>
                     </div>
-                    <div className="container row">
+            
                         <div className='col-10'>
+                            <div>
+                                <form onSubmit={handleSubmit}  className="row g-2">
+                                    <label className="col-auto">
+                                        <input type="file" className="form-control" onChange={handleChange}  />
+                                    </label>
 
-                        </div>
-                       
-                        <div className='col-2'>
-                            <div className="row">
-                                <div className='col-3'>
-                                    <div className="image-upload">
-                                        <label htmlFor="file-input" className='pointer'>
-                                            <FaDownload style={{fontSize:"1.5rem"}}/>
-                                        </label>
-                                        <input id="file-input" type="file"/>
-                                    </div>
-                                </div>
-                            
-                                <div className='col-9'>
-                                    <div className="btn btn-primary postbtn rounded mx-5" >Post</div>
-                                </div>
+                                    <label className="col-3">
+                                        <button type="submit" className="btn btn-primary form-control"  style={{marginLeft:'275px'}}>Comment</button>
+                                    </label>
+                                </form>
                             </div>
-                        </div>
-                        
-                    </div>
-                   
+                        </div>                
                 </div>
             </div>
         </div>
