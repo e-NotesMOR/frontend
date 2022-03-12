@@ -2,8 +2,6 @@ import React,{useState} from "react";
 import { Link,useHistory  } from 'react-router-dom';
 import {FaUser,FaLock} from 'react-icons/fa';
 import "./../../Css/Home.css"
-// eslint-disable-next-line
-import { fakedata } from "../../Models/fakedata";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
